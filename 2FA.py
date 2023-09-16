@@ -50,8 +50,18 @@ print("")
 
 totp = pyotp.TOTP(key)
 
+code0 = totp.now()
+print(code0)
+
+timer = 1
 while True:
-    print(totp.now())
-    time.sleep(30)
+    time.sleep(timer)
+    code1 = totp.now()
+    if code0 != code1:
+        print(code1)
+        code0 = code1
+        timmer=30
+
+
 
 
